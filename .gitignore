@@ -1,0 +1,13 @@
+*#*#
+*~
+docs/build
+.Rhistory
+.csv
+.cache
+.config
+.ipynb_checkpoints
+.ipython
+.jupyter
+.local
+.notes
+.npm
