@@ -19,9 +19,9 @@ And you may also find some interesting details in the **Comparison** and **Concl
    overview
    r/index
    python/index
+   comparison
+   conclusion
 
 Coming soon
-#   comparison
-#   conclusion
 #   pine/index
 #   mql4/index
