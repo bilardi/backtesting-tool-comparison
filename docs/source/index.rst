@@ -18,9 +18,9 @@ And you may also find some interesting details in the **Comparison** and **Concl
 
    overview
    r/index
+   python/index
 
 Coming soon
-#   python/index
 #   comparison
 #   conclusion
 #   pine/index

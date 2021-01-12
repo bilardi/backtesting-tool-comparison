@@ -1,0 +1,13 @@
+requests
+yfinance
+yahoo-fin
+requests_html
+yahoofinancials
+pandas_datareader
+quandl
+matplotlib
+mplfinance
+datetime
+pandas
+numpy
+backtesting
