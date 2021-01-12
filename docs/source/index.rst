@@ -17,9 +17,9 @@ And you may also find some interesting details in the **Comparison** and **Concl
    :caption: Contents:
 
    overview
+   r/index
 
 Coming soon
-#   r/index
 #   python/index
 #   comparison
 #   conclusion
