@@ -41,5 +41,5 @@ Jupyter is very easy for `having a GUI virtual environment <https://jupyter-dock
 
 You can find all scripts descripted in this tutorial on `GitHub <https://github.com/bilardi/backtesting-tool-comparison/>`_:
 
-* src/r/, the script that you can use on RStudio
-* the .ipynb files in docs/sources/r/, that you can use on Jupyter or browse on this tutorial
+* the .r files in `src/r/ <https://github.com/bilardi/backtesting-tool-comparison/tree/master/src/r/>`_ folder, the script that you can use on RStudio
+* the .ipynb files in `docs/sources/r/ <https://github.com/bilardi/backtesting-tool-comparison/tree/master/docs/sources/r/>`_ folder, that you can use on Jupyter or browse on this tutorial

@@ -54,7 +54,7 @@ If you want to use `Jupyter <https://jupyter.org/>`_, you can use directly the c
 
 Jupyter is very easy for `having a GUI virtual environment <https://jupyter-docker-stacks.readthedocs.io/it/latest/>`_: knowing the basics will be taken for granted.
 
-You can find all scripts descripted in this tutorial on `GitHub <https://github.com/bilardi/backtesting-tool-comparison/tree/master/src/>`_.
+You can find all scripts descripted in this tutorial on `GitHub <https://github.com/bilardi/backtesting-tool-comparison/>`_.
 
-* the .py files in src/ folder, the you can use on shell
-* the .ipynb files in docs/sources/python/ folder, that you can use on Jupyter or browse on this tutorial
+* the .py files in `src/python/ <https://github.com/bilardi/backtesting-tool-comparison/tree/master/src/python/>`_ folder, the you can use on shell
+* the .ipynb files in `docs/sources/python/ <https://github.com/bilardi/backtesting-tool-comparison/tree/master/docs/sources/python/>`_ folder, that you can use on Jupyter or browse on this tutorial
