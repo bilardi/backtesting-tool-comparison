@@ -1,0 +1,32 @@
+// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © bilardi
+//@version=4
+
+//study("My Simple Strategy Script", "", true) // in the main chart
+study(title="My Simple Strategy Script", shorttitle="Strategy", format=format.price, precision=2) // a chart space dedicated
+
+legs = input(20)
+
+// Simple indicators
+
+// moving averages
+sma20 = sma(close, legs)
+plot(sma20, "sma 20", color.blue, 2)
+plot(sma(close, 50), "sma 50", color.orange, 2)
+
+// bollinger bands
+dev = 2 * stdev(close, legs)
+upper = sma20 + dev
+lower = sma20 - dev
+p1 = plot(upper, title="BB upper", color=color.green, linewidth=1, style=plot.style_circles)
+p2 = plot(lower, title="BB lower", color=color.green, linewidth=1, style=plot.style_circles)
+fill(p1, p2)
+
+// volume
+plot(volume * vwap, title="Volume", style=plot.style_columns, color=close >= open ? color.green : color.red, transp=50)
+
+// rsi
+plot(rsi(close, legs), title="RSI", color=color.purple)
+h0 = hline(70)
+h1 = hline(50)
+fill(h0, h1, color=color.purple, transp=75)

@@ -42,6 +42,11 @@ The documentation for **R** and **Python** languages, it has been powered by `Ju
     $ pip install --upgrade -r requirements.txt
     $ docker run --rm -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes -v "$PWD":/home/jovyan/ jupyter/datascience-notebook
 
+The images are hosted on S3 and not in this repository:
+
+* use a PR for sharing a new version without images, only the new url
+* it will be our care to move them to S3 with all the others
+
 For testing on your local client the documentation, see this `README.md <https://github.com/bilardi/backtesting-tool-comparison/blob/master/docs/README.md>`_ file.
 
 License

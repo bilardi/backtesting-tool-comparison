@@ -1,0 +1,19 @@
+// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © bilardi
+//@version=4
+
+study("My Simple Volume Script", "", true, format.volume, 0, scale.none)
+
+//Get volume for current bar and multiply with vwap
+vInverse = volume * vwap
+plot(series=vInverse, title="Volume", style=plot.style_columns, color=close >= open ? color.green : color.red, transp=50)
+
+//Make the moving average user configurable
+showMA = input(true)
+plot(showMA ? sma(vInverse,20) : na, title="SMA", style=plot.style_area, color=color.white, transp=80)
+
+//Plot high line to scale down the columns
+highLine = input(1000, "High Line", minval = 2, step = 100)
+limit = highest(vInverse, highLine)
+scaleFactor = 100 / input(20, "% of vertical space used", step = 10, maxval = 100)
+plot(limit * scaleFactor, "Historical High", color.black)

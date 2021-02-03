@@ -1,0 +1,28 @@
+// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © bilardi
+//@version=4
+
+//strategy("My Simple Strategy Script - sample 2") // a chart space dedicated
+strategy("My Simple Strategy Script - sample 2", "", true) // in the main chart
+
+ma20 = sma(close, 20)
+ma50 = sma(close, 50)
+//ma20 = ema(close, 20)
+//ma50 = ema(close, 50)
+plot(ma20, "Ma20", color.blue, 2)
+plot(ma50, "Ma50", color.orange, 2)
+
+buyEntry = crossover(ma20, ma50)
+sellEntry = crossunder(ma20, ma50)
+
+if (buyEntry)
+    strategy.entry("MaLE", strategy.long, oca_name="Ma", oca_type=strategy.oca.cancel, comment="MaLE")
+else
+    strategy.cancel(id="MaLE")
+
+if (sellEntry)
+    strategy.entry("MaSE", strategy.short, oca_name="Ma", oca_type=strategy.oca.cancel, comment="MaSE")
+else
+    strategy.cancel(id="MaSE")
+
+plot(strategy.equity, title="Equity", color=color.red, linewidth=2, style=plot.style_areabr)

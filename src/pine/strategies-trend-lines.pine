@@ -1,0 +1,50 @@
+// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © bilardi
+//@version=4
+
+//study("My Simple Trend Line Script") // a chart space dedicated
+study("My Simple Trend Line Script", "", true) // in the main chart
+
+// initialization
+legs = input(20)
+showLineRSI = input(true)
+
+var bar_time1 = 0
+var bar_time2 = 0
+var float bar_high1 = 0
+var float bar_high2 = 0
+var float bar_rsi1 = 0
+var float bar_rsi2 = 0
+_rsi = rsi(close, legs)
+
+if time == timestamp(2020, 04, 16, 09, 30)
+    bar_high1 := high
+    bar_time1 := time
+    bar_rsi1 := _rsi
+
+if time == timestamp(2020, 05, 21, 09, 30)
+    bar_high2 := high
+    bar_time2 := time
+    bar_rsi2 := _rsi
+
+// rsi line
+plot(bar_rsi1 == 0 or bar_rsi2 != 0 ? na : _rsi, title="RSI of trend", color=color.orange, linewidth=2)
+plot(rsi(close, legs), title="RSI", color=color.purple)
+h0 = hline(70)
+h1 = hline(50)
+fill(h0, h1, color=color.purple, transp=75)
+
+// rsi trend line
+if bar_rsi1 != 0 and bar_rsi2 != 0 and showLineRSI
+    line.new(bar_time2, bar_rsi2, bar_time1, bar_rsi1, xloc.bar_time, width = 4)
+    bar_rsi1 := 0
+    bar_rsi2 := 0
+
+// high line
+plot(bar_high1 == 0 or bar_high2 != 0 ? na : high, title="High line", color=color.orange, linewidth=6)
+
+// high trend line
+if bar_high1 != 0 and bar_high2 != 0 and showLineRSI != true
+    line.new(bar_time2, bar_high2, bar_time1, bar_high1, xloc.bar_time, width = 4)
+    bar_high1 := 0
+    bar_high2 := 0

@@ -1,0 +1,44 @@
+// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © bilardi
+//@version=4
+
+//study("My Simple Sample Script") // a chart space dedicated
+//study("My Simple Sample Script", max_labels_count = 500) // a chart space dedicated with a max label > 50, that it is the default
+study("My Simple Sample Script", "", true) // the main chart
+
+// Custom lines
+
+// monthly points - the first Monday of each month
+custom = array.new_float(1)
+if dayofmonth <= 7 and dayofweek == dayofweek.monday
+    array.set(custom, 0, close)
+else
+    array.set(custom, 0, na)
+customPreviousClose = array.get(custom, 0)[1]
+plot(customPreviousClose, "customPreviousClose", color.yellow, 6, plot.style_circles)
+plot(customPreviousClose, "customPreviousClose", color.yellow, 6, plot.style_line, transp = 50)
+
+// line by index
+i = line.new(bar_index, high, bar_index[10], low[10], width = 4)
+line.delete(i[1])
+
+// line by time
+t = line.new(time, high, time[10], low[10], xloc.bar_time, width = 4)
+line.delete(t[1])
+
+// Indicators
+
+// moving average
+sma25 = sma(close, 25)
+ema25 = ema(close, 25)
+plot(sma25, "sma 25", color.orange, 2)
+plot(ema25, "ema 25", color.red, 2)
+
+// bollinger bands
+ma = sma25
+dev = 2 * stdev(close, 25)
+upper = ma + dev
+lower = ma - dev
+p1 = plot(upper, color=color.green, linewidth=1, style=plot.style_circles)
+p2 = plot(lower, color=color.green, linewidth=1, style=plot.style_circles)
+fill(p1, p2)

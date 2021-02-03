@@ -1,0 +1,23 @@
+// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © bilardi
+//@version=4
+
+study("My Simple Pivot Script", "", true)
+legs = input(14)
+showPivotHigh = input(true)
+showPivotLow = input(true)
+
+pivot_points(pi, legs) =>
+    newPi = not na(pi)
+    var float ci = na
+    if newPi
+        ci := close[legs]
+    [pi, newPi, ci]
+
+[pHi, newPHi, cHi] = pivot_points(pivothigh(close, legs, legs), legs)
+plot(showPivotHigh ? cHi : na, "", newPHi ? na : color.fuchsia, offset = - legs)
+plotchar(showPivotHigh ? pHi : na, "pHi", "▼", location.abovebar, color.fuchsia, offset = - legs)
+
+[pLi, newPLi, cLi] = pivot_points(pivotlow(close, legs, legs), legs)
+plot(showPivotLow ? cLi: na, "", newPLi ? na : color.orange, offset = - legs)
+plotchar(showPivotLow ? pLi: na, "pLi", "▲", location.belowbar, color.orange, offset = - legs)
